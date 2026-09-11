@@ -1,0 +1,226 @@
+/* ==========================================================================
+   EasyHire — design tokens
+   Источники: Figma pizza22 (секция 147:4152) + живой сайт https://easyhire.me
+   (состояния, transitions, breakpoints сняты из CSS сайта, MUI v5 / emotion).
+   Подключать первым; компоненты ниже — референсные рецепты, не библиотека.
+   ========================================================================== */
+
+:root {
+  /* ---------- Цвет: бренд ---------- */
+  --green:            #20ae49;                 /* primary action, active, links */
+  --green-hover:      #189d39;                 /* primary-кнопка :hover (MUI dark) */
+  --green-soft:       #e1f9e8;                 /* фон soft-кнопок, зелёных тегов */
+  --green-muted:      #90d7a4;                 /* disabled primary в диалоге */
+  --green-tint-04:    rgba(32, 174, 73, .04);  /* hover text/outlined-кнопок */
+  --green-tint-08:    rgba(32, 174, 73, .08);  /* плитка под иконку на тёмном */
+  --green-halo-16:    rgba(32, 174, 73, .16);  /* halo слайдера :hover/:focus */
+
+  /* ---------- Цвет: текст и тёмная поверхность ---------- */
+  --ink:              #010c27;                 /* текст И фон тёмной секции */
+  --ink-60:           rgba(1, 12, 39, .6);
+  --ink-20:           rgba(1, 12, 39, .2);
+  --slate:            #37474f;                 /* формы, диалог, cookie-баннер */
+  --grey-helper:      #9b9b9b;
+  --grey-date:        #b0bcc1;                 /* даты блога, hover-рамка поля */
+
+  /* ---------- Цвет: поверхности и границы ---------- */
+  --white:            #ffffff;
+  --bg-page:          #f7f9fa;
+  --bg-alt:           #f5f6f7;
+  --border-card:      #f5f6f7;
+  --border-input:     #c8d0d4;
+  --divider:          #d8dee0;
+  --border-dark:      rgba(255, 255, 255, .1);
+
+  /* ---------- Цвет: статус ---------- */
+  --error:            #e90530;                 /* рамка поля .Mui-error */
+  --tag-blue-bg:      #edf8fe;  --tag-blue-fg:   #1497f6;
+  --tag-violet-bg:    #f7f2fd;  --tag-violet-fg: #8542eb;
+
+  /* ---------- Цвет: системные (MUI defaults, встречаются на сайте) ---------- */
+  --disabled-fg:      rgba(0, 0, 0, .26);
+  --disabled-bg:      rgba(0, 0, 0, .12);
+  --icon-muted:       rgba(0, 0, 0, .54);      /* бургер-меню */
+  --hover-neutral:    rgba(0, 0, 0, .04);      /* icon-button :hover */
+  --backdrop:         rgba(0, 0, 0, .5);       /* подложка модалки */
+
+  /* ---------- Шрифт ---------- */
+  --font:             "Inter", Helvetica, Arial, sans-serif;
+  --font-hand:        "Shadows Into Light", cursive;
+  --slant:            "slnt" -14;              /* font-variation-settings для курсива дат */
+
+  /* ---------- Типографика: заголовки (desktop) ---------- */
+  --h1:               700 60px/72px var(--font);
+  --h2:               700 40px/48px var(--font);
+  --h3:               700 32px/40px var(--font);   /* цена, итоговая цифра */
+  --h4:               700 24px/32px var(--font);   /* карточка CTA, «Jobs and Questions» */
+  --h5:               600 20px/28px var(--font);   /* заголовок job-карточки */
+  --h6:               600 18px/28px var(--font);   /* фиче-карточка, имя тарифа */
+  --subtitle-1:       500 24px/32px var(--font);   /* метрика «100 hours» */
+  --subtitle-2:       500 18px/22.5px var(--font); /* таб */
+  --lead:             400 18px/28px var(--font);
+  --body:             400 16px/24px var(--font);
+  --body-loose:       400 18px/30px var(--font);   /* анонс статьи */
+  --caption:          400 14px/20px var(--font);
+  --overline:         600 14px/20px var(--font);   /* «AI Generating» */
+  --button:           600 16px/28px var(--font);
+  --button-sm:        600 14px/24.5px var(--font); /* шапка, tablet, mobile */
+  --date:             italic 400 20px/24px var(--font);
+  --hand:             400 24px/1 var(--font-hand);
+
+  /* ---------- Типографика: формы ---------- */
+  --dialog-title:     600 25px/30px var(--font);
+  --label:            500 13px/normal var(--font);
+  --input:            400 15px/23px var(--font);
+  --helper:           400 12px/19.92px var(--font);
+  --legal:            400 10.24px/17px var(--font);
+
+  /* ---------- Отступы ---------- */
+  --gutter:           24px;    /* поля страницы на всех брейкпоинтах */
+  --container:        1280px;
+  --container-tablet: 720px;
+  --container-mobile: 342px;
+  --section-y:        40px;
+  --gap-xs:           12px;
+  --gap-s:            20px;
+  --gap-m:            30px;
+  --gap-l:            50px;
+  --gap-xl:           100px;
+
+  /* ---------- Радиусы ---------- */
+  --r-button:         8px;
+  --r-input:          10px;
+  --r-tile:           12px;
+  --r-card:           16px;
+  --r-card-l:         18px;
+  --r-dialog:         22px;
+  --r-pill:           31px;
+  --r-hero:           48px;
+
+  /* ---------- Тени (MUI elevation ladder + брендовые) ---------- */
+  --sh-e1:  0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  --sh-e2:  0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);   /* кнопка rest */
+  --sh-e4:  0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);  /* кнопка :hover */
+  --sh-e6:  0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12); /* кнопка :focus-visible */
+  --sh-e8:  0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12); /* кнопка :active */
+  --sh-e24: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12); /* диалог */
+  --sh-panel:  0 16px 24px rgba(1,12,39,.05);
+  --sh-cta:    0 12px 12px rgba(1,12,39,.08);
+  --sh-card:   0 13px 13.5px rgba(1,12,39,.1);
+  --sh-stack:  0 12px 24px rgba(1,12,39,.1);
+  --sh-thumb:  0 3px 1px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 1px 5px rgba(0,0,0,.12);
+
+  /* ---------- Motion ---------- */
+  --ease:             cubic-bezier(.4, 0, .2, 1);   /* единственная кривая на сайте */
+  --t-fast:           150ms;   /* индикатор табов (позиция), слайдер, icon-button bg */
+  --t-base:           200ms;   /* fill svg-иконок, placeholder */
+  --t-slow:           300ms;   /* box-shadow карточек, индикатор табов */
+  --t-button:         0.01s;   /* кнопки: hover/active меняются мгновенно (так на сайте) */
+
+  /* ---------- Брейкпоинты (MUI v4-legacy + кастомные) ---------- */
+  --bp-sm:            600px;
+  --bp-md:            960px;
+  --bp-lg:            1280px;
+  --bp-xl:            1920px;
+  --bp-custom-750:    750px;
+  --bp-custom-1040:   1040px;
+}
+
+/* ==========================================================================
+   Референсные рецепты компонентов (состояния сняты с сайта)
+   ========================================================================== */
+
+/* --- Кнопка primary ------------------------------------------------------ */
+.btn-primary {
+  font: var(--button); color: var(--white); background: var(--green);
+  padding: 16px 32px; border: 0; border-radius: var(--r-button); height: 60px;
+  box-shadow: var(--sh-e2); cursor: pointer; transition: color var(--t-button);
+}
+.btn-primary:hover         { background: var(--green-hover); box-shadow: var(--sh-e4); }
+.btn-primary:active        { box-shadow: var(--sh-e8); }
+.btn-primary:focus-visible { box-shadow: var(--sh-e6); outline: 0; }
+.btn-primary:disabled      { color: var(--disabled-fg); background: var(--disabled-bg); box-shadow: none; pointer-events: none; }
+@media (hover: none) { .btn-primary:hover { background: var(--green); } }
+
+/* Вариант в тарифах: без тени в rest и без потемнения в hover */
+.btn-primary--flat            { box-shadow: none; font-weight: 500; text-transform: capitalize; width: 100%; padding: 16px 28px; }
+.btn-primary--flat:hover      { background: var(--green); box-shadow: none; }
+
+/* Вариант в диалоге: disabled = приглушённый зелёный, а не серый */
+.btn-primary--dialog          { height: 52px; border-radius: var(--r-input); width: 100%; box-shadow: none; }
+.btn-primary--dialog:disabled { color: var(--white); background: var(--green-muted); }
+
+/* --- Кнопка soft (шапка) ------------------------------------------------- */
+.btn-soft {
+  font: var(--button-sm); color: var(--green); background: var(--green-soft);
+  padding: 12px 28px; border: 0; border-radius: var(--r-button); cursor: pointer;
+}
+.btn-soft:hover { background: var(--green-tint-04); }   /* так на сайте: заливка почти исчезает */
+
+/* --- Кнопка soft в тарифах: hover → solid ------------------------------- */
+.btn-soft--fill:hover { background: var(--green); color: var(--white); box-shadow: none; }
+
+/* --- Кнопка outlined (cookie-баннер) ------------------------------------ */
+.btn-outlined {
+  font: 400 14px/24.5px var(--font); color: var(--green); background: transparent;
+  border: 1px solid rgba(32,174,73,.5); border-radius: 3px; padding: 5px 15px;
+}
+.btn-outlined:hover { background: var(--green-tint-04); border-color: var(--green); }
+
+/* --- Icon button --------------------------------------------------------- */
+.btn-icon       { width: 40px; height: 40px; padding: 8px; border-radius: 50%; color: var(--icon-muted); background: transparent; transition: background-color var(--t-fast) var(--ease); }
+.btn-icon:hover { background: var(--hover-neutral); }
+
+/* --- Ссылки: состояний нет ---------------------------------------------- */
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: none; }               /* на сайте hover у ссылок не задан */
+
+/* --- Табы ---------------------------------------------------------------- */
+.tabs      { border-bottom: 1px solid var(--ink-20); }
+.tab       { font: var(--subtitle-2); color: var(--ink); opacity: .8; min-height: 48px; padding: 12px 16px 30px; text-align: center; }
+.tab[aria-selected="true"] { color: var(--green); }
+.tab-indicator { height: 2px; background: var(--green); transition: left var(--t-fast) var(--ease), width var(--t-fast) var(--ease); }
+
+/* --- Поле ввода (outlined, MUI) ----------------------------------------- */
+.field-label { font: var(--label); color: var(--slate); display: block; margin-bottom: 6px; }
+.field {
+  font: var(--input); color: var(--slate); background: var(--white);
+  height: 48px; padding: 13px 14px; border: 1px solid var(--border-input);
+  border-radius: var(--r-input); width: 100%; outline: 0;
+}
+.field::placeholder     { color: currentColor; opacity: .42; transition: opacity var(--t-base) var(--ease); }
+.field:hover            { border-color: var(--grey-date); }
+.field:focus            { border-color: var(--green); }          /* 1px, без тени и без halo */
+.field[aria-invalid="true"] { border-color: var(--error); }
+.field:disabled         { border-color: var(--disabled-fg); }
+.field-helper           { font: var(--helper); color: var(--grey-helper); margin-top: 6px; }
+
+/* --- Чекбокс ------------------------------------------------------------- */
+.checkbox, .checkbox:checked { accent-color: var(--green); color: var(--green); }
+
+/* --- Слайдер ------------------------------------------------------------- */
+.slider-rail  { height: 4px; border-radius: var(--r-tile); background: var(--green); opacity: .38; }
+.slider-track { height: 6px; border-radius: var(--r-tile); background: var(--green); transition: left var(--t-fast) var(--ease), width var(--t-fast) var(--ease); }
+.slider-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--green); box-shadow: var(--sh-thumb); transition: box-shadow var(--t-fast) var(--ease); }
+.slider-thumb:hover, .slider-thumb:focus-visible { box-shadow: 0 0 0 8px var(--green-halo-16); }
+.slider--dragging .slider-thumb, .slider--dragging .slider-track { transition: none; }
+
+/* --- Карточки ------------------------------------------------------------ */
+.card          { background: var(--white); border: 1px solid var(--border-card); border-radius: var(--r-card); padding: 30px 20px; transition: box-shadow var(--t-slow) var(--ease); }
+.card--popular { border: 2px solid var(--green); }
+.card-dark     { background: linear-gradient(172.81deg, rgba(58,129,191,.08) 8%, rgba(65,48,90,.08) 92.5%), rgba(255,255,255,.04); border: 1px solid var(--border-dark); border-radius: var(--r-card); padding: 16px; }
+/* hover у карточек на сайте не задан */
+
+/* --- Диалог -------------------------------------------------------------- */
+.backdrop { background: var(--backdrop); }
+.dialog   { width: 468px; max-width: calc(100% - 64px); padding: 8px; background: var(--white); border-radius: var(--r-dialog); box-shadow: var(--sh-e24); }
+
+/* --- Cookie-баннер ------------------------------------------------------- */
+.cookie-banner { background: var(--slate); color: var(--white); font: 400 12px/20px var(--font); border-radius: 4px; box-shadow: var(--sh-e1); padding: 16px; }
+.cookie-banner a { color: var(--green); }
+
+/* --- Карусель (slick) ---------------------------------------------------- */
+.slick-arrow::before          { font-size: 20px; color: var(--white); opacity: .75; }
+.slick-arrow:hover::before,
+.slick-arrow:focus::before    { opacity: 1; }
+.slick-disabled::before       { opacity: .25; }
